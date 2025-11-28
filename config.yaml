@@ -1,1 +1,3 @@
 router_server: "0.0.0.0:7999"
+logger_level : "Info"
+logger_file_name : "testlog.log"

@@ -1,5 +1,7 @@
 *打算写一个基于gin的go博客项目*
-
+##### 运行命令
+- 前端： powershell -ExecutionPolicy Bypass -Command "npm run dev" 
+- 后端： go run main.go
 ##### 项目的创建时间为2025-11-27
 
 ##### 功能设计如blog.md中所示

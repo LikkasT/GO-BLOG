@@ -15,7 +15,7 @@ export default defineConfig({
     // API代理配置，将/api请求转发到后端服务
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://localhost:7999',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '') // 根据实际情况调整
       }

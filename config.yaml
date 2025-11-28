@@ -1,3 +1,11 @@
 router_server: "0.0.0.0:7999"
 logger_level : "Info"
 logger_file_name : "testlog.log"
+MySQL:
+  DBUser: "admin"
+  DBPassword: "123456"
+  DBHost: "localhost"
+  DBPort: 3306
+  DBName: "blog"
+  DBCharset: "utf8mb4"
+  DBIfParseTime: True

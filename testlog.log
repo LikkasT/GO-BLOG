@@ -1,2 +1,1 @@
-time="2025-11-28T11:17:18+08:00" level=info msg="开始初始化router"
-time="2025-11-28T11:17:18+08:00" level=info msg="router将运行在0.0.0.0:7999"
+time="2025-11-28T15:57:33+08:00" level=info msg="database connect message admin:123456@tcp(localhost:3306)/blog?charset=utf8mb4&parseTime=true&loc=Local"

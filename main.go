@@ -3,7 +3,9 @@ package main
 import (
 	"fmt"
 
+	"github.com/LikkasT/GO-BLOG/biz/db"
 	"github.com/LikkasT/GO-BLOG/biz/middle_ware"
+	"github.com/LikkasT/GO-BLOG/biz/models"
 	"github.com/LikkasT/GO-BLOG/biz/router"
 )
 
@@ -20,7 +22,17 @@ func main() {
 		fmt.Printf("error Init logger, %s", err)
 		return
 	}
-	router := router.RouterDependencies(router_viper, router_logger)
-	router.RouterInit()
+	router_db, err := db.DbInit(router_viper, router_logger)
+	if err != nil {
+		fmt.Printf("error Init db, %s", err)
+		return
+	}
+	err = router_db.AutoMigrate(&models.Users{})
+	if err != nil {
+		fmt.Printf("error migrate db, %s", err)
+		return
+	}
+	routerDeps := router.RouterDependencies(router_viper, router_logger, router_db)
+	routerDeps.RouterInit()
 
 }

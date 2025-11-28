@@ -33,14 +33,20 @@ export async function testIndexApi(): Promise<ApiResponse> {
 }
 
 /**
- * 这里可以添加更多API函数，例如：
- * - 获取博客列表
- * - 获取单篇博客详情
- * - 创建博客
- * - 更新博客
- * - 删除博客
+ * 用户注册接口
+ * @param username 用户名
+ * @param password 密码
+ * @returns Promise<ApiResponse> - 后端响应数据
  */
-// export async function getBlogList(): Promise<Blog[]> {
-//   const response = await apiClient.get<Blog[]>('/api/blogs');
-//   return response.data;
-// }
+export async function registerUser(username: string, password: string): Promise<ApiResponse> {
+  try {
+    const response = await apiClient.post<ApiResponse>('/auth/register', { username, password });
+    return response.data;
+  } catch (error) {
+    if (typeof error === 'object' && error !== null && 'message' in error) {
+      throw new Error(`注册请求失败: ${(error as any).message}`);
+    } else {
+      throw new Error(`未知错误: ${error instanceof Error ? error.message : '无法连接到后端'}`);
+    }
+  }
+}
